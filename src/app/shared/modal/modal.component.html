@@ -1,1 +1,15 @@
-<p>modal works!</p>
+@if(isVisible){
+    <div class="overlay" (click)="close()">
+        <div class="modal !w-[40%]" (click)="$event.stopPropagation()">
+            <div class="modal-header border-b-4 pb-3 border-gray-400">
+                <h2>{{ title }}</h2>
+                <button class="close-button !bg-blue-500 visible !px-2 !py-1  !text-[13px]" (click)="close()">X</button>
+            </div>
+            <div class="modal-body">
+                <ng-content></ng-content>
+            </div>
+        </div>
+    </div>
+    
+}
+

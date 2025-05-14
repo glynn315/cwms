@@ -1,1 +1,45 @@
-<p>logs works!</p>
+<div class="p-2 bg-[#45919e] rounded flex justify-between items-center">
+    <span class="text-white text-base">Logbook Management</span>
+    <button (click)="openModal()" class="py-3 px-9 text-white border-solid border-2 border-white rounded-xl">+ Add New Logs</button>
+</div>
+
+<app-modal
+    [title]="modalTitle"
+    [isVisible]="modalVisible"
+    (closeModal)="closeModal()">
+
+    <div class="flex justify-between items-center">
+        <h1 class="font-bold text-3xl">User Log</h1>
+        <button class="py-2 border rounded border-gray-300 px-5">Select a Member</button>
+    </div>
+    <form action="">
+        <div class="mt-2 flex justify-between items-center gap-2">
+            <div class="w-full">
+                <label for="">First Name</label>
+                <input type="text" name="" class="p-2 border rounded w-full" placeholder="First Name" id="">
+            </div>
+            <div class="w-full">
+                <label for="">First Name</label>
+                <input type="text" name="" class="p-2 border rounded w-full" placeholder="First Name" id="">
+            </div>
+        </div>
+        <div class="mt-2 flex justify-between items-center gap-2">
+            <div class="w-full">
+                <label for="">Address</label>
+                <input type="text" name="" class="p-2 border rounded w-full" placeholder="First Name" id="">
+            </div>
+        </div>
+        <div class="mt-2 flex justify-between items-center gap-2">
+            <div class="w-full">
+                <label for="">Contact Number</label>
+                <input type="text" name="" class="p-2 border rounded w-full" placeholder="First Name" id="">
+            </div>
+            <div class="w-1/2">
+                <label for="">Hub Type</label>
+                <input type="text" name="" class="p-2 border rounded w-full" placeholder="First Name" id="">
+            </div>
+        </div>
+        <input type="submit" value="Create Log" class="p-2 rounded bg-[#45919e] text-white w-full mt-4">
+    </form>
+    
+</app-modal>
