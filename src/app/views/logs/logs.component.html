@@ -3,6 +3,34 @@
     <button (click)="openModal()" class="py-3 px-9 text-white border-solid border-2 border-white rounded-xl">+ Add New Logs</button>
 </div>
 
+<div>
+    <table class="w-full logsDisplay mt-5">
+        <thead class="border border-gray-300 shadow-xl border-x-0 bg-slate-200 rounded">
+            <th>#</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th class="w-[15%]">Contact Number</th>
+            <th class="w-[10%]">Hub Number</th>
+            <th class="w-[10%]">Time In</th>
+            <th class="w-[20%]"></th>
+        </thead>
+        <div class="mt-5"></div>
+        <tr *ngFor="let logs of logsList; let i = index" class="mt-3">
+            <td>{{ i + 1}}</td>
+            <td>{{ logs.firstName }} {{ logs.lastName }}</td>
+            <td>{{ logs.address }}</td>
+            <td>{{ logs.contact }}</td>
+            <td>{{ logs.hubType }}</td>
+            <td>{{ logs.timeIn }}</td>
+            <td class="flex justify-end m-0 !pr-3"><button (click)="timeout(logs.id)" class="px-6 py-2 mr-2 bg-red-500 text-white rounded-lg">Time Out</button> <button (click)="sample(logs.id)" class="px-6 py-2 rounded-lg bg-green-500 text-white">Add Ons</button></td>
+        </tr>
+    </table>
+    <div>
+        
+        
+    </div>
+</div>
+
 <app-modal
     [title]="modalTitle"
     [isVisible]="modalVisible"
@@ -12,34 +40,34 @@
         <h1 class="font-bold text-3xl">User Log</h1>
         <button class="py-2 border rounded border-gray-300 px-5">Select a Member</button>
     </div>
-    <form action="">
+    <form>
         <div class="mt-2 flex justify-between items-center gap-2">
             <div class="w-full">
                 <label for="">First Name</label>
-                <input type="text" name="" class="p-2 border rounded w-full" placeholder="First Name" id="">
+                <input type="text" [(ngModel)]="logs.firstName" name="fname" class="p-2 border rounded w-full" placeholder="First Name" id="">
             </div>
             <div class="w-full">
-                <label for="">First Name</label>
-                <input type="text" name="" class="p-2 border rounded w-full" placeholder="First Name" id="">
+                <label for="">Last Name</label>
+                <input type="text" [(ngModel)]="logs.lastName" name="lname" class="p-2 border rounded w-full" placeholder="First Name" id="">
             </div>
         </div>
         <div class="mt-2 flex justify-between items-center gap-2">
             <div class="w-full">
                 <label for="">Address</label>
-                <input type="text" name="" class="p-2 border rounded w-full" placeholder="First Name" id="">
+                <input type="text" [(ngModel)]="logs.address" name="address" class="p-2 border rounded w-full" placeholder="First Name" id="">
             </div>
         </div>
         <div class="mt-2 flex justify-between items-center gap-2">
             <div class="w-full">
                 <label for="">Contact Number</label>
-                <input type="text" name="" class="p-2 border rounded w-full" placeholder="First Name" id="">
+                <input type="text" [(ngModel)]="logs.contact" name="contact" class="p-2 border rounded w-full" placeholder="First Name" id="">
             </div>
             <div class="w-1/2">
                 <label for="">Hub Type</label>
-                <input type="text" name="" class="p-2 border rounded w-full" placeholder="First Name" id="">
+                <input type="text" [(ngModel)]="logs.hubType" name="hub" class="p-2 border rounded w-full" placeholder="First Name" id="">
             </div>
         </div>
-        <input type="submit" value="Create Log" class="p-2 rounded bg-[#45919e] text-white w-full mt-4">
+        <input (click)="submit()" type="button" value="Create Log" class="p-2 rounded bg-[#45919e] text-white w-full mt-4">
     </form>
     
 </app-modal>
